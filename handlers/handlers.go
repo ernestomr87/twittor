@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/ernestomr87/twittor/middlew"
+	"github.com/ernestomr87/twittor/routers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -14,7 +15,7 @@ import (
 func Handlers() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/register", middlew.CheckDBConnection(router.Register)).Methods("POST")
+	router.HandleFunc("/register", middlew.CheckDBConnection(routers.Register)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
