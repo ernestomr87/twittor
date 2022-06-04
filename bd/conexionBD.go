@@ -28,8 +28,8 @@ func ConnectionDB() *mongo.Client {
 	return client
 }
 
-// CheckConnection is ping the connection
-func CheckConnection() int {
+// CheckDBConnection is ping the connection
+func CheckDBConnection() int {
 	err := MongoCN.Ping(context.TODO(), nil)
 	if err != nil {
 		return 0
