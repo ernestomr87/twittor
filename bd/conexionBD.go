@@ -4,13 +4,14 @@ import (
 	"context"
 	"log"
 
+	"github.com/ernestomr87/twittor/utils"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // MongoCN is an Connection object
 var MongoCN = ConnectionDB()
-var clientOptions = options.Client().ApplyURI("mongodb+srv://root:epastor@cluster0.v6opscz.mongodb.net/?retryWrites=true&w=majority")
+var clientOptions = options.Client().ApplyURI(utils.GetEnvs("MONGODB_URL"))
 
 // ConnectionDB Connection to MongoDB
 func ConnectionDB() *mongo.Client {

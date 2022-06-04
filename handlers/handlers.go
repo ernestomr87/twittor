@@ -3,10 +3,10 @@ package handlers
 import (
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/ernestomr87/twittor/middlew"
 	"github.com/ernestomr87/twittor/routers"
+	"github.com/ernestomr87/twittor/utils"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -17,7 +17,7 @@ func Handlers() {
 
 	router.HandleFunc("/register", middlew.CheckDBConnection(routers.Register)).Methods("POST")
 
-	PORT := os.Getenv("PORT")
+	PORT := utils.GetEnvs("PORT")
 	if PORT == "" {
 		PORT = "8080"
 	}
